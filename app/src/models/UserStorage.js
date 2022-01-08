@@ -4,7 +4,7 @@ class UserStorage {
     static #users = { // public 에서 private로 
         id : ["woorimIT", "나개발", "김팀장"],
         psword: ["1234", "1234", "123456"],
-        name: [],
+        name: ["우리밋", "나개발", "김팀장"],
     };
 
     static getUsers(...fields) {
@@ -17,6 +17,18 @@ class UserStorage {
         }, {})
         return newUsers;
     };
+
+    static getUserInfo(id) {
+        const users = this.#users;
+        const idx = users.id.indexOf(id);
+        const userKeys = Object.keys(users);
+        const userInfo = userKeys.reduce((newUser, info) => {
+            newUser[info] = users[info][idx];
+            return newUser;
+        }, {});
+
+        return userInfo
+    }
 }
 
 module.exports = UserStorage;
