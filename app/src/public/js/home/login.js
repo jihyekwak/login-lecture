@@ -11,7 +11,7 @@ function login() {
     id: id.value,
     psword: psword.value,
     }
-    console.log(req, JSON.stringify(req));
+    // console.log(req, JSON.stringify(req));
 
     // 어떤 경로로 전달할 것인지, json형태로 바꿔주려면 stringyfy
     fetch("/login", {
