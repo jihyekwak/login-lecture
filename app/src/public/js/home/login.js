@@ -11,13 +11,16 @@ function login() {
     id: id.value,
     psword: psword.value,
     }
-    // console.log(req, JSON.stringify(req));
+    console.log(req, JSON.stringify(req));
 
+    // 어떤 경로로 전달할 것인지, json형태로 바꿔주려면 stringyfy
     fetch("/login", {
         method: "POST",
-        header: {
-            "Content-Type": "application/json"
+        headers: {
+            "Content-Type": "application/json" // 요정하는 데이터가 json형태임을 알려줌
         },
         body: JSON.stringify(req)
-    });
+    })
+        .then((res) => res.json())
+        .then((res)=>{})
 }
